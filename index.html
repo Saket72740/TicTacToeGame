@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <link href="StyleSheet.css" rel="stylesheet">
+        <script src="tictactoe.js"></script>
+        <title>Tic Tac Toe Game</title>
+    </head>
+    <body>
+        <div class="container" style="text-align: center;">
+            <br>
+            <h1 style="color: greenyellow;">Tic Tac Toe Game</h1>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <select class="form-select" id="game" aria-label="Default select example" onclick="user()">
+                                        <option value="0" selected>Select the game type</option>
+                                        <option value="1">User-User game</option>
+                                        <option value="2">User-Computer Game</option>
+                                    </select>
+                                </div><br>
+                                <div class="form-group" id="usr" style="visibility: hidden;">
+                                    <label class="form-group" >User1 Name:</label>
+                                    <input type="text" class="form-control" id="usr1">
+                                </div><br>
+                                <div class="form-group" id="Usr" style="visibility: hidden;">
+                                    <label class="form-group">User2 Name:</label>
+                                    <input type="text" class="form-control" id="usr2">
+                                </div>
+                                <br>
+                                <div>
+                                    <button type="button" class="btn btn-primary" onclick="changeName()">Start</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-6" id="play">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        <div class="card-head">
+                            <div>
+                                <p class="pull-left" id="user1" style="color: green;"><b>Player 1</b></p>
+                                <p class="pull-right" id="user2" style="color: red;"><b>Player 2</b></p>
+                            </div>
+                            <br>
+                            <br>
+                            <div>
+                                <button type="button" class="pull-left btn btn-outline-dark" disabled><b>O</b></button>
+                                <button type="button" id="tss" class="pull-center btn btn-primary" onclick="Toss()">Toss for first move</button>
+                                <button type="button" class="pull-right btn btn-outline-dark" disabled><b>X</b></button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <br>
+                            <input type="button" id="s0" class="btn btn-outline-dark" value="___" onclick="userClick(0)"><b></b></input>&nbsp;
+                            <input type="button" id="s1" class="btn btn-outline-dark" value="___" onclick="userClick(1)"></input>&nbsp;
+                            <input type="button" id="s2" class="btn btn-outline-dark" value="___" onclick="userClick(2)"></input>&nbsp;
+                            <br>
+                            <br>
+                            <input type="button" id="s3" class="btn btn-outline-dark" value="___" onclick="userClick(3)"></input>&nbsp;
+                            <input type="button" id="s4" class="btn btn-outline-dark" value="___" onclick="userClick(4)"></input>&nbsp;
+                            <input type="button" id="s5" class="btn btn-outline-dark" value="___" onclick="userClick(5)"></input>&nbsp;
+                            <br>
+                            <br>
+                            <input type="button" id="s6" class="btn btn-outline-dark" value="___" onclick="userClick(6)"></input>&nbsp;
+                            <input type="button" id="s7" class="btn btn-outline-dark" value="___" onclick="userClick(7)"></input>&nbsp;
+                            <input type="button" id="s8" class="btn btn-outline-dark" value="___" onclick="userClick(8)"></input>&nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" >
+                    <button type="button" class="btn btn-primary" id="btn2" onclick="showMoves()">Show moves</button><br><br>
+                    <div class="card shadow p-3 mb-5 bg-white rounded" id="card_body" style="visibility: collapse;">
+                        <div class="card-body">
+                            <h4>Moves Covered</h4>
+                            <table class="table" style="text-align: left;">
+                                <thead>
+                                    <tr>
+                                      <th scope="col">Sr. No.</th>
+                                      <th scope="col" id="user1_1">Player 1</th>
+                                      <th scope="col" id="user2_2">Player 2</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 style="color: greenyellow;">Created By- <i>Saket Kumar</i></h4>
+            <h5 style="color: greenyellow;">Mob. No. - 9334966105</h5>
+        </div>
+    </body>
+</html>
