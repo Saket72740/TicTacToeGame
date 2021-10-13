@@ -75,19 +75,22 @@
                             <input type="button" id="s7" class="btn btn-outline-dark" value="___" onclick="userClick(7)"></input>&nbsp;
                             <input type="button" id="s8" class="btn btn-outline-dark" value="___" onclick="userClick(8)"></input>&nbsp;
                         </div>
+                        <br>
+                        <button type="button" id="newG" class="pull-center btn btn-secondary" onclick="newGame()" value="New Game">New Game</button>
                     </div>
                 </div>
                 <div class="col-md-6" >
-                    <button type="button" class="btn btn-primary" id="btn2" onclick="showMoves()">Show moves</button><br><br>
+                    <button type="button" class="btn btn-primary" id="btn2" onclick="showMoves()">Show Winners</button><br><br>
                     <div class="card shadow p-3 mb-5 bg-white rounded" id="card_body" style="visibility: collapse;">
                         <div class="card-body">
-                            <h4>Moves Covered</h4>
+                            <h4>Winner List</h4>
                             <table class="table" style="text-align: left;">
                                 <thead>
                                     <tr>
                                       <th scope="col">Sr. No.</th>
                                       <th scope="col" id="user1_1">Player 1</th>
                                       <th scope="col" id="user2_2">Player 2</th>
+                                      <th scope="col" id="user2_2">Winner</th>
                                     </tr>
                                   </thead>
                                   <tbody>
