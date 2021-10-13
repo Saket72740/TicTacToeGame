@@ -55,7 +55,7 @@
                             <br>
                             <div>
                                 <button type="button" class="pull-left btn btn-outline-dark" disabled><b>O</b></button>
-                                <button type="button" id="tss" class="pull-center btn btn-primary" onclick="Toss()">Toss for first move</button>
+                                <input type="button" id="tss" class="pull-center btn btn-primary" onclick="Toss()" value="Toss for first play"></input>
                                 <button type="button" class="pull-right btn btn-outline-dark" disabled><b>X</b></button>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                             <input type="button" id="s8" class="btn btn-outline-dark" value="___" onclick="userClick(8)"></input>&nbsp;
                         </div>
                         <br>
-                        <button type="button" id="newG" class="pull-center btn btn-secondary" onclick="newGame()" value="New Game">New Game</button>
+                        <button type="button" id="newG" class="pull-center btn btn-dark" onclick="newGame()" value="New Game">New Game</button>
                     </div>
                 </div>
                 <div class="col-md-6" >
@@ -84,7 +84,7 @@
                     <div class="card shadow p-3 mb-5 bg-white rounded" id="card_body" style="visibility: collapse;">
                         <div class="card-body">
                             <h4>Winner List</h4>
-                            <table class="table" style="text-align: left;">
+                            <table id="mytable" class="table" style="text-align: left;">
                                 <thead>
                                     <tr>
                                       <th scope="col">Sr. No.</th>

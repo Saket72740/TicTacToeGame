@@ -1,4 +1,5 @@
-var count = 0;
+var count = 0;          //for making show winner button visible-hide
+var cnt = 0;            //for counting n winner
 var count_user1 = -1;   //for user-user move
 var count_user2 = -1;   //for user-"X"uter move
 var last = -1;
@@ -8,6 +9,7 @@ var toss = -1;          //coin toss
 var flag = true;        //checking the 1st card input
 var game_type = -1;     // which one user-user or user-"X"uter
 var a = ["_","_","_","_","_","_","_","_","_"];
+var winner = [];
 
 function changeName(){
     var n = document.getElementById("game");
@@ -36,8 +38,6 @@ function changeName(){
     console.log(user1 + " " + user2 + " " + game_type);
     document.getElementById("user1").innerHTML = "<b>" + user1 + "<b>";
     document.getElementById("user2").innerHTML = "<b>" + user2 + "</b>";
-    document.getElementById("user1_1").innerHTML = user1;
-    document.getElementById("user2_2").innerHTML = user2;
 }
 
 function user(){
@@ -82,9 +82,9 @@ function Toss(){
         console.log("toss" + toss);
         document.getElementById("tss").disabled=true;
         if(toss == 0)
-            document.getElementById("tss").innerHTML = user1 + " won the toss";
+            document.getElementById("tss").value = user1 + " won the toss";
         else
-        document.getElementById("tss").innerHTML = user2 + " won the toss";
+        document.getElementById("tss").value = user2 + " won the toss";
         document.getElementById("newG").disabled = true;
     }
 }
@@ -122,6 +122,23 @@ function userClick(n){
             document.getElementById(s).value = "_O_";
             document.getElementById(s).disabled = true;
             a[n] = "O";
+            var w = winning();
+            if(w == 2){
+                alert("Match Draw");
+                document.getElementById("newG").disabled = false;
+                winner.push("No One");
+                addData();
+                cnt += 1;
+                return ;
+            }
+            else if(w == 0){
+                alert(user1 + " win the game");
+                document.getElementById("newG").disabled = false;
+                winner.push(user1);
+                addData();
+                cnt += 1;
+                return;
+            }
             userComputer();
             count_user2 +=2;
             console.log(a);
@@ -139,12 +156,20 @@ function userClick(n){
                 document.getElementById(s).disabled = true;
             }
         }
-        if(w==0)
+        if(w==0){
             alert(user1 + " win the game");
-        else if(w==1)
+            winner.push(user1);
+        }
+        else if(w==1){
             alert(user2 + " win the game");
-        else
+            winner.push(user2);
+        }
+        else{
             alert("Match Draw");
+            winner.push("No One");
+        }
+        addData();
+        cnt += 1;
     }
     console.log(w);
     if(w != -1){
@@ -164,6 +189,7 @@ function newGame(){
         document.getElementById(s).value = "___";
         document.getElementById(s).className = "btn btn-outline-dark";
     }
+    document.getElementById("tss").value = "Toss for first play";
 }
 
 function userComputer(){
@@ -297,7 +323,7 @@ function userComputer(){
         return;
     }
     else if(a[0] == "_" && a[4] == "O" && a[8] == "O"){
-        a[0] = "O";
+        a[0] = "X";
         s += 0;
         document.getElementById(s).value = "_X_";
         document.getElementById(s).disabled = true;
@@ -346,9 +372,9 @@ function userComputer(){
         return;
     }
     else{
-        var n = getRandom(8);
+        var n = getRandom(9);
         while(a[n] != "_")
-            n = getRandom(8);
+            n = getRandom(9);
         s += n;
         a[n] = "X";
         console.log("s in r = " + s);
@@ -483,4 +509,17 @@ function showMoves(){
         document.getElementById("card_body").style.visibility = "collapse";
         document.getElementById("btn2").innerHTML = "Show Winners";
     }
+}
+
+function addData(){
+    var table = document.getElementById("mytable");
+    var row = table.insertRow(cnt+1);
+    var cell1 = row.insertCell(0);
+    cell1.innerHTML = cnt+1;
+    var cell2 = row.insertCell(1);
+    cell2.innerHTML = user1;
+    var cell3 = row.insertCell(2);
+    cell3.innerHTML = user2;
+    var cell4 = row.insertCell(3);
+    cell4.innerHTML = winner[cnt];
 }
